@@ -23,3 +23,11 @@ def test_set_teacher():
     sut.set_teacher(teacher)
 
     assert sut.teacher == teacher
+
+def test_add_student():
+    sut = Course("Français", date(2024, 1, 29), date(2024, 2, 16))
+    student = Student("Dupont", "Paul", 35)
+
+    sut.add_student(student)
+
+    assert sut.students_taking_it == [student]
