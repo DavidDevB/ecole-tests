@@ -31,3 +31,5 @@ def test_add_student():
     sut.add_student(student)
 
     assert sut.students_taking_it == [student]
+
+
