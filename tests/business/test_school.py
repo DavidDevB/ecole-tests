@@ -34,3 +34,22 @@ def test_add_student():
     school.add_student(student)
 
     assert school.students == [student]
+
+
+def test_display_courses_list():
+    school = School()
+    course = Course("Français", date(2024, 1, 29), date(2024, 2, 16))
+
+    school.add_course(course)
+
+    school.display_courses_list()
+
+    assert True
+
+
+def test_init_static():
+    school = School()
+
+    school.init_static()
+
+    assert True
