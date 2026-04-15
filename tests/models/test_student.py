@@ -9,7 +9,7 @@ from datetime import date
 
 
 def test_student():
-    student = Student("Dupont", "Paul", 35)
+    student = Student("Paul", "Dupont", 35)
     assert student.first_name == "Paul"
     assert student.last_name == "Dupont"
     assert student.age == 35

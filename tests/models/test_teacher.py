@@ -9,7 +9,7 @@ from datetime import date
 
 
 def test_teacher():
-    teacher = Teacher("Dupont", "Paul", 35, date(2024, 1, 29))
+    teacher = Teacher("Paul", "Dupont", 35, date(2024, 1, 29))
 
     assert teacher.first_name == "Paul"
     assert teacher.last_name == "Dupont"
