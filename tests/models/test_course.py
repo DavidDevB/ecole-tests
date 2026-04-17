@@ -16,20 +16,21 @@ def test_course():
     assert course.teacher is None
 
 
-def test_set_teacher():
-    sut = Course("Français", date(2024, 1, 29), date(2024, 2, 16))
-    teacher = Teacher("Dupont", "Paul", 35, date(2024, 1, 29))
+def test_set_teacher(mocker):
+    course = Course("Français", date(2024, 1, 29), date(2024, 2, 16))
+    teacher = mocker.Mock()
 
-    sut.set_teacher(teacher)
+    course.set_teacher(teacher)
 
-    assert sut.teacher == teacher
+    assert course.teacher == teacher
 
-def test_add_student():
-    sut = Course("Français", date(2024, 1, 29), date(2024, 2, 16))
-    student = Student("Dupont", "Paul", 35)
+def test_add_student(mocker):
+    course = Course("Français", date(2024, 1, 29), date(2024, 2, 16))
+    student = mocker.Mock()
 
-    sut.add_student(student)
+    student.courses_taken = mocker.Mock()
+    course.add_student(student)
 
-    assert sut.students_taking_it == [student]
-
+    assert student in course.students_taking_it
+    student.courses_taken.append.assert_called_once_with(course)
 
