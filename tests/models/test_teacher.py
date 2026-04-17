@@ -16,12 +16,12 @@ def test_teacher():
     assert teacher.age == 35
 
 
-def test_add_course():
-    sut = Teacher("Dupont", "Paul", 35, date(2024, 1, 29))
-    course = Course("Français", date(2024, 1, 29), date(2024, 2, 16))
+def test_add_course(mocker):
+    teacher = Teacher("Dupont", "Paul", 35, date(2024, 1, 29))
+    course = mocker.Mock()
 
-    sut.add_course(course)
+    teacher.add_course(course)
 
-    assert sut.courses_teached == [course]
+    assert teacher.courses_teached == [course]
 
     
