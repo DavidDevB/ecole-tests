@@ -22,3 +22,8 @@ def test_add_course(mocker):
     student.add_course(course)
 
     assert student.courses_taken == [course]
+
+def test_str_student():
+    Student.students_nb = 0
+    student = Student("Dupont", "Paul", 35)
+    assert str(student) == "Paul Dupont, n° étudiant : 1"
