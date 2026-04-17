@@ -15,10 +15,10 @@ def test_student():
     assert student.age == 35
 
 
-def test_add_course():
-    sut = Student("Dupont", "Paul", 35)
-    course = Course("Français", date(2024, 1, 29), date(2024, 2, 16))
+def test_add_course(mocker):
+    student = Student("Dupont", "Paul", 35)
+    course = mocker.Mock()
 
-    sut.add_course(course)
+    student.add_course(course)
 
-    assert sut.courses_taken == [course]
+    assert student.courses_taken == [course]
